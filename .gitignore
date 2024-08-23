@@ -4,19 +4,22 @@ __pycache__/
 
 # Ignore virtual environments
 .venv/
-
+venv/
 
 # Ignore logs and temporary files
 *.log
 *.tmp
 *.temp
 *.html
+temp/
+output/
 
 # Ignore compiled files
 *.egg
 *.egg-info/
 dist/
 build/
+*.pkl
 
 # Ignore IDE/editor specific files
 .vscode/
@@ -29,6 +32,16 @@ build/
 .DS_Store
 Thumbs.db
 
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+.virtual_documents/
+*/.virtual_documents/*
+
 # Other
 *.zip
 *.xml
+.rpa/
+*/work-items-out/*
+testrun/*
+.~lock*
