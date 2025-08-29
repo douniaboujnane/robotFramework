@@ -1,41 +1,53 @@
-# Robot Framework Setup Guide
+# Project Setup
 
 ## Installation Steps
 
-1. **Download Python**:  
-   Download Python from the [official Python website](https://www.python.org/downloads/).
+```bash
+python --version
+brew install python
+brew install --cask miniconda
+conda init zsh
+source ~/.zshrc
 
-2. **Verify Python Installation**:  
-   After installation, verify Python by running:
+git clone repo
+cd robotFramework/robots
 
-   ```bash
-   python --version
-   ```
+conda env create -f conda.yaml -n robot
+conda activate robot
 
-3. **Install Robot Framework**:  
-   Install Robot Framework using pip:
+```
 
-   ```bash
-   pip install robotframework
-   ```
+## Project Structure
 
-4. **Verify Robot Framework Installation**:  
-   Check the Robot Framework installation by running:
-   ```bash
-   robot --version
-   ```
+```
 
-## Template: Robot Framework - Minimal
+robots/
+├── tasks.robot # Main entry point
+├── custom/
+│ ├── SensorInstallationLibrary.py # Library with natural keywords
+│ ├── InstallerOperations.py # Installation operations
+│ └── unzipFiles/
+│ ├── zipFileOperation.py # ZIP operations
+│ ├── directoryHandler.py # Folder management
+│ └── platformUtils.py # Platform utilities
+└── sensor/
+├── install_sensor_improved.robot # Improved installation keywords
+└── install_sensor.robot # Original version
 
-This is the simplest template to start from:
+```
 
-- Begin with a basic task template in `tasks.robot` using [Robot Framework](https://robocorp.com/docs-robot-framework/languages-and-frameworks/robot-framework/basics) syntax.
-- Configure your robot in the `robot.yaml` file.
-- Manage dependencies in `conda.yaml`.
+## Usage
 
-## Learning Materials
+### Main Execution
 
-- [Robocorp Developer Training Courses](https://robocorp.com/docs/courses)
-- [Documentation on Robot Framework](https://robocorp.com/docs/languages-and-frameworks/robot-framework)
+```bash
+robot --report NONE --outputdir output --logtitle "Task log" tasks.robot
+```
 
-For more in-depth guidance, refer to the [Robot Framework User Guide](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#python-installation).
+## Robocorp Configuration
+
+The project uses:
+
+- `conda.yaml` for Python dependencies
+- `robot.yaml` for Robot Framework configuration
+- Multi-platform support (Windows, macOS, Linux)
