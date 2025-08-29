@@ -1,8 +1,7 @@
 import os, zipfile
 
-from robots.custom.unzipFiles.directoryHandler import DirectoryHandler
-from robots.custom.unzipFiles.platformUtils import PlatformUtils
-
+from robots.customLibraries.unzipFiles.directoryHandler import DirectoryHandler
+from robots.customLibraries.unzipFiles.platformUtils import PlatformUtils
 
 class ZipFileOperation:
     def unzip_file_located_in_directory(self, directory):
